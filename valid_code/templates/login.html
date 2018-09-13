@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+
+</head>
+<body>
+<form action="/verifycodetest/" method="post">
+    {% csrf_token %}
+    <input type="text" name="code1">
+
+    <img id='verifycode' src="/verifycode/?">
+    <span id='verifycodeChange'>看不清，换一个</span>
+    <input type="submit">
+    
+</form>
+
+
+
+<script type="text/javascript">
+    $(function(){
+        $('#verifycodeChange').css('cursor','pointer').click(function() {
+            $('#verifycode').attr('src',$('#verifycode').attr('src')+1)
+        });
+    });
+</script>
+
+</body>
+</html>
